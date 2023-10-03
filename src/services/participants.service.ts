@@ -3,7 +3,7 @@ import participantRespository from "../repositories/participant.repository";
 
 async function createParticipant(name: string, balance: number) {
   if (balance < 1000) {
-    throw notEnoughtBalanceError()
+    throw notEnoughtBalanceError("Create Participant")
   }
   const participant = await participantRespository.createParticipant(name, balance);
   return participant;

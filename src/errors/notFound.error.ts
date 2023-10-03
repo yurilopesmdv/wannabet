@@ -1,9 +1,9 @@
 import { AplicationError } from "../protocols";
 
-export default function notFoundError(): AplicationError {
+export default function notFoundError(type: string): AplicationError {
   return {
     name: "NotFoundError",
-    message: "Game not found. The requested game could not be located"
+    message: `${type} not found. The requested ${type} could not be located`
   }
 }
 

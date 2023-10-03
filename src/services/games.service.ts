@@ -11,7 +11,7 @@ async function listAllGames() {
 
 async function getGameWithBets(gameId: number) {
   const gameWithBets = await gameRepository.getGameWithBets(gameId);
-  if (!gameWithBets) throw notFoundError();
+  if (!gameWithBets) throw notFoundError("Game");
   return gameWithBets;
 }
 
