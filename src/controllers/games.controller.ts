@@ -39,10 +39,22 @@ async function getGameWithBets(req: Request, res: Response) {
   }
 }
 
+async function finishGame(req: Request, res: Response) {
+  try {
+    const { id } = req.params;
+    const { homeTeamScore, awayTeamScore } = req.body;
+    const game = await gameService.finishGame(parseInt(id), homeTeamScore, awayTeamScore);
+    return res.status(httpStatus.OK).send('Okay');
+  } catch (error) {
+    return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR)
+  }
+}
+
 const gameController = {
   createGame,
   listAllGames,
-  getGameWithBets
+  getGameWithBets,
+  finishGame
 }
 
 export default gameController;
