@@ -1,4 +1,5 @@
 import { prisma } from "@/config";
+import calculateEarns from "@/utils/calculateEarns.utils";
 
 async function createBet(homeTeamScore: number, awayTeamScore: number, amountBet: number, gameId: number, participantId: number) {
   return prisma.bet.create({
@@ -11,7 +12,24 @@ async function createBet(homeTeamScore: number, awayTeamScore: number, amountBet
     }
   });
 }
+async function getAllBets(gameId: number) {
+  const bets = await prisma.bet.findMany({
+    where: {gameId}
+  })
+  return bets
+}
+async function updateBet(id: number, status: string, amountWon: number) {
+  return prisma.bet.update({
+    where: {id},
+    data: {
+      status,
+      amountWon
+    }
+  })
+}
 const betRepository = {
-  createBet
+  createBet, 
+  updateBet, 
+  getAllBets
 };
 export default betRepository;

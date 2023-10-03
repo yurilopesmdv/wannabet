@@ -44,7 +44,7 @@ async function finishGame(req: Request, res: Response) {
     const { id } = req.params;
     const { homeTeamScore, awayTeamScore } = req.body;
     const game = await gameService.finishGame(parseInt(id), homeTeamScore, awayTeamScore);
-    return res.status(httpStatus.OK).send('Okay');
+    return res.status(httpStatus.OK).send(game);
   } catch (error) {
     return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR)
   }

@@ -27,11 +27,23 @@ async function getGameById(id: number) {
     where: {id}
   })
 }
+
+async function finishGame(id: number, homeTeamScore: number, awayTeamScore: number) {
+  return prisma.game.update({
+    where: {id},
+    data: {
+      homeTeamScore,
+      awayTeamScore,
+      isFinished: true
+    }
+  })
+}
 const gameRepository = {
   createGame,
   listAllGames,
   getGameWithBets,
-  getGameById
+  getGameById,
+  finishGame
 };
 
 export default gameRepository;
