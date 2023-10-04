@@ -9,9 +9,6 @@ async function createGame(req: Request, res: Response) {
     const game = await gameService.createGame(homeTeamName, awayTeamName);
     return res.status(httpStatus.CREATED).send(game);
   } catch (error) {
-    if (error.name === "NotEnoughtBalance") {
-      return res.status(httpStatus.BAD_REQUEST).send(error.message);
-    }
     return res.status(httpStatus.INTERNAL_SERVER_ERROR);
   }
 }
