@@ -10,11 +10,12 @@ Instale todas as dependências
 ``` bash
 npm install
 ```
+
 Configure o arquivo .env conforme o .env.example, com DATABASE_URL direcionando para o Postgres da sua máquina
 
 ```bash
-npx prisma migrate dev
-npx prisma generate
+npm run migration:run
+
 ```
 
 Depois para rodar em modo de desenvolvimento 
@@ -22,3 +23,5 @@ Depois para rodar em modo de desenvolvimento
 npm run dev
 ```
 Segue abaixo o link do deploy:
+
+https://wannabet-h81t.onrender.com/
