@@ -7,7 +7,6 @@
     "build": "tsc --project tsconfig.build.json && tscpaths -p tsconfig.build.json -s ./src -o ./dist",
     "start": "node dist/src/server.js",
     "migration:run": "prisma migrate deploy",
-    "migration:generate": "npm run dev:load-envs prisma migrate dev",
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
     "test:coverage": "NODE_ENV=test jest --passWithNoTests --runInBand --forceExit --coverage --collectCoverageFrom='./src/**'",
     "test:migration:run": "NODE_ENV=test run test:load-envs prisma migrate deploy",
