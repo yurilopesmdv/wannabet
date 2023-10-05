@@ -7,7 +7,7 @@ export async function cleanDb() {
   await prisma.participant.deleteMany({});
 }
 
-export const generateValidBody = () => ({
-  name: faker.internet.userName(),
-  password: 1000,
+export const generateValidBody = async () => ({
+  name: "Jorge",
+  balance: 1000,
 });

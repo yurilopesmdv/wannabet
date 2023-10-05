@@ -8,10 +8,6 @@ app
   .use(cors())
   .use(json())
   .use(router)
-  .get('/health', (req, res) => {
-    return res.status(200).send('OK')
-  } )
-
 
 export function init(): Promise<Express> {
   connectDb();

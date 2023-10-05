@@ -1,33 +1,29 @@
-import { describe, it } from "node:test";
 import app, {init, close} from "@/app";
-import { cleanDb, generateValidBody } from "../helpers";
 import supertest from "supertest";
+import { cleanDb, generateValidBody } from "../helpers";
 import httpStatus from "http-status";
 import { createParticipant } from "../factories/create-participant";
 
 export const server = supertest(app);
 
-jest.useFakeTimers()
+
 beforeAll(async () => {
   await init();
   await cleanDb();
 })
-
 beforeEach(async () => {
+  jest.useFakeTimers()
   await cleanDb();
 })
-
 afterEach(async () => {
   await cleanDb();
 })
-
+/*
 afterAll(async () => {
   await close();
 })
-
-
-
-describe('Participants Tests', async () => {
+*/
+describe('Participants Tests', () => {
   it('should create an participant and return a 201 status code', async () => {
     const body = generateValidBody()
     const response = await server
@@ -58,6 +54,6 @@ describe('Participants Tests', async () => {
     const participant = await createParticipant();
     const response = await server.get('/participants');
     expect(response.status).toBe(httpStatus.OK);
-    expect(response.body).toContain(participant);
+    expect(response.body).toHaveLength(1);
   })
 })

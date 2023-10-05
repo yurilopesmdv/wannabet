@@ -3,9 +3,9 @@ import { server } from "../integration/participant.test";
 
 export async function createGame() {
   const body = {
-    homeTeamName: faker.internet.userName,
-    awayTeamName: faker.internet.userName
+    homeTeamName: "Luiz",
+    awayTeamName: "Jorge"
   }
-  const response = await server.post('/game').send(body);
+  const response = await server.post('/games').send(body);
   return response.body;
 }
