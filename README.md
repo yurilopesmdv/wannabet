@@ -26,6 +26,18 @@ Segue abaixo o link do deploy:
 
 https://wannabet-h81t.onrender.com/
 
+### Para rodar utilizando o Docker Compose siga os seguintes passos:
+
+Você precisa ter o Docker Compose v2.20.3
+
+Rode o seguinte comando no terminal dentro da pasta do projeto:
+
+```bash
+docker compose up -d
+```
+
+Desta forma a aplicação estará rodando na porta 4000 do seu localhost.
+
 
 ### Para rodar utilizando o Docker siga os seguintes passos:
 
