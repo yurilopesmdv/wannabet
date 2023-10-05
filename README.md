@@ -27,7 +27,7 @@ Segue abaixo o link do deploy:
 https://wannabet-h81t.onrender.com/
 
 
-##Para rodar utilizando o Docker siga os seguintes passos:
+### Para rodar utilizando o Docker siga os seguintes passos:
 
 Você precisa ter o docker instalado em sua máquina
 
