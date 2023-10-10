@@ -6,6 +6,6 @@ export const gameSchema: ObjectSchema = Joi.object({
 })
 
 export const gameFinishedSchema: ObjectSchema = Joi.object({
-  homeTeamScore: Joi.number().required().positive(),
-  awayTeamScore: Joi.number().required().positive()
+  homeTeamScore: Joi.number().required().min(0),
+  awayTeamScore: Joi.number().required().min(0)
 })
